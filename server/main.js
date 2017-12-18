@@ -4,6 +4,7 @@ import _ from 'lodash';
 import {Employees} from '../imports/collections/employee'
 import {image, helpers} from 'faker';
 
+
 Meteor.startup(() => {
   // code to run on server at startup hence great place to generate data
   //check if data already exists
