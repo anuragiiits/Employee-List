@@ -1,11 +1,15 @@
 import React from 'react';
 import { Employees } from '../../imports/collections/employee';
-import { createContainer } from 'react/react-meteor-data'
-const EmployeeList = () => {
+import { createContainer } from 'meteor/react-meteor-data'
+import EmployeeDetail from './employee_detail';
+
+const EmployeeList = (props) => {
+    //props.employees => an array of employee objects
+    console.log(props.employees);
     return (
         <div>
             <div className="employee-list">
-                EmployeeList
+                 {props.employees.map((employee) => <EmployeeDetail employee={employee}/>)}
             </div>
         </div>
     )
