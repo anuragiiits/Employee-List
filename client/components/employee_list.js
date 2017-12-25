@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import { Employees } from '../../imports/collections/employee';
-import { createContainer } from 'meteor/react-meteor-data'
+import { withTracker } from 'meteor/react-meteor-data'
 import EmployeeDetail from './employee_detail';
 
 const PER_PAGE = 20;
@@ -34,11 +34,11 @@ class EmployeeList extends Component{
     };
 };
 
-export default createContainer(()=>{
+export default withTracker(()=>{
     //set up the subscription
     Meteor.subscribe('employees', PER_PAGE); //sends the argument PER_PAGE
 
     //return an object. Whatever is returned will be sent to EmployeeList
     // as props
     return {employees: Employees.find({}).fetch()};
-}, EmployeeList);
+})( EmployeeList);
